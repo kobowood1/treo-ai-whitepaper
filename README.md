@@ -4,7 +4,7 @@ Treo is a proposed responsible AI learning platform for grades 8–12 STEM. It i
 
 This repository contains version 1.0 of the Treo whitepaper, published October 27, 2026, by Kofi Obo Wood.
 
-[Read the whitepaper](WHITEPAPER.md) · [Download the PDF](treo-whitepaper.pdf)
+[Visit the website](https://treo-ai-whitepaper.vercel.app) · [Read the whitepaper](WHITEPAPER.md) · [Download the PDF](treo-whitepaper.pdf)
 
 > **Project status:** Treo is at the prototype stage. The whitepaper distinguishes current prototype capabilities from planned pilot and production work. Pricing, adoption, and growth figures are planning assumptions—not forecasts or deployed results.
 
