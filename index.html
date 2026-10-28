@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treo — one learner model for student, teacher and parent</title>
+<meta name="description" content="Treo is a responsible AI learning platform for grades 8–12 STEM. One learner model guides a Socratic tutor for the student, a copilot for the teacher and plain-language guidance for the parent. Read the whitepaper.">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=pilcrow-rounded@400,500,700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%272%27 y=%2710%27 width=%2728%27 height=%2712%27 rx=%276%27 fill=%27%23c3edce%27/%3E%3Crect x=%272%27 y=%2710%27 width=%2716%27 height=%2712%27 rx=%276%27 fill=%27%231f6b3a%27/%3E%3C/svg%3E">
+<link rel="stylesheet" href="site/styles.css">
+</head>
+<body>
+
+<header class="hero" id="top">
+  <nav class="nav" aria-label="Main">
+    <a class="wordmark" href="#top">treo</a>
+    <ul class="nav-links">
+      <li class="only-wide"><a class="link" href="#evidence">evidence</a></li>
+      <li class="only-wide"><a class="link" href="#how">how it works</a></li>
+      <li class="only-wide"><a class="link" href="#prototype">prototype</a></li>
+      <li class="only-wide"><a class="link" href="#business">business</a></li>
+      <li><a class="link" href="treo-whitepaper.pdf">whitepaper</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-copy">
+    <h1><span data-rise style="--i:0">one learner,</span><br><span data-rise style="--i:1">three views</span></h1>
+    <p class="lede" data-rise style="--i:2">Treo is an AI learning platform for grades 8–12 STEM. It keeps one model of what each student knows, and the student’s tutor, the teacher’s copilot and the parent’s guide all read from it.</p>
+    <div class="actions" data-rise style="--i:3">
+      <a class="button" href="treo-whitepaper.pdf">read the whitepaper (PDF)</a>
+      <a class="link link-plain" href="#prototype">try the prototype</a>
+    </div>
+    <p class="meta small muted" data-rise style="--i:4">Whitepaper version 1.0 · October 27, 2026 · Kofi Obo Wood</p>
+  </div>
+
+  <div class="hero-shape" aria-hidden="false">
+    <div class="hero-ui">
+      <div class="ui" data-ui role="group" aria-label="Treo learner model for a fictional student, Ama">
+        <div class="ui-head"><strong>Ama · algebra 1</strong><span class="who">learner model</span></div>
+        <ul class="model" data-model-list>
+          <li data-concept="negnum" class="is-root"><span class="name">negative numbers</span><span class="bar"><i></i></span><span class="val nums">0.38</span></li>
+          <li data-concept="twostep"><span class="name">two-step equations</span><span class="bar"><i></i></span><span class="val nums">0.70</span></li>
+          <li data-concept="slope"><span class="name">slope as a rate of change</span><span class="bar"><i></i></span><span class="val nums">0.58</span></li>
+          <li data-concept="slopeint"><span class="name">slope-intercept form</span><span class="bar"><i></i></span><span class="val nums">0.37</span></li>
+          <li data-concept="newton"><span class="name">Newton’s second law</span><span class="bar"><i></i></span><span class="val nums">0.64</span></li>
+        </ul>
+        <div class="evidence">
+          <dl>
+            <dt>last answer</dt><dd data-out="answerText">y = 2x + 3</dd>
+            <dt>error type</dt><dd data-out="errorType">conceptual</dd>
+            <dt>root cause</dt><dd data-out="rootName">negative numbers</dd>
+            <dt>change</dt><dd data-out="changeText" class="nums">−0.10 (cap 0.15)</dd>
+          </dl>
+        </div>
+        <div class="readers small"><span>tutor</span><span>teacher copilot</span><span>parent guide</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="problem wrap" id="problem" aria-labelledby="problem-title">
+  <div class="problem-head">
+    <h2 class="head" id="problem-title" data-reveal>three people, three partial views</h2>
+  </div>
+  <p class="statement" data-reveal style="--i:1">Three people decide whether a teenager masters algebra: the student <span class="thumb"><img src="site/img/students-studying-at-cathedral-senior-high-school.jpg" width="1920" height="1271" alt="A high school student reading a worksheet, head in hand, 1974"></span>, the teacher <span class="thumb"><img src="site/img/a-teacher-talks-to-his-students-in.jpg" width="1920" height="2826" alt="A teacher holding a sheet of paper in front of a blackboard, 1974"></span> and the parent <span class="thumb"><img src="site/img/homework-04.jpg" width="1920" height="1279" alt="A mother and daughter doing homework together at a table"></span>. Each sees only part of the picture.</p>
+
+  <div class="views">
+    <article class="view" data-reveal style="--i:0">
+      <div class="view-pic"><img src="site/img/students-studying-at-cathedral-senior-high-school.jpg" width="1920" height="1271" alt="A student reading a worksheet at his desk, head in hand" loading="lazy"></div>
+      <h3>the student</h3>
+      <dl>
+        <div><dt>sees</dt><dd>The problem in front of them.</dd></div>
+        <div><dt>misses</dt><dd>Why they are stuck, and what to practice.</dd></div>
+      </dl>
+    </article>
+    <article class="view" data-reveal style="--i:1">
+      <div class="view-pic"><img src="site/img/a-teacher-talks-to-his-students-in.jpg" width="1920" height="2826" alt="A teacher holding a sheet of paper in front of the blackboard" loading="lazy" style="object-position: 50% 25%"></div>
+      <h3>the teacher</h3>
+      <dl>
+        <div><dt>sees</dt><dd>Answers from 150 students across five classes, usually after it is too late to help.</dd></div>
+        <div><dt>misses</dt><dd>Which error type, and which prerequisite is behind it, early enough to act.</dd></div>
+      </dl>
+    </article>
+    <article class="view" data-reveal style="--i:2">
+      <div class="view-pic"><img src="site/img/homework-04.jpg" width="1920" height="1279" alt="A mother checking her daughter's homework at the table" loading="lazy" style="object-position: 50% 35%"></div>
+      <h3>the parent</h3>
+      <dl>
+        <div><dt>sees</dt><dd>A grade, often weeks later.</dd></div>
+        <div><dt>misses</dt><dd>What their child is working on, and how to help tonight.</dd></div>
+      </dl>
+    </article>
+  </div>
+
+  <div class="problem-coda">
+    <p data-reveal>Most AI tools in schools serve one of these people in isolation. Treo keeps one learner model and gives each of them a view of it.</p>
+  </div>
+</section>
+
+<section class="evidence-sec wrap" id="evidence" aria-labelledby="evidence-title">
+  <div class="tiles">
+    <div class="tile tile-a" data-reveal>
+      <p class="fig nums">+127%</p>
+      <div>
+        <p>Practice grades for high school maths students using a GPT-4 tutor built with tutoring safeguards. It largely avoided the harm seen without them.</p>
+        <p class="ref">Bastani et al., PNAS 2025: a field experiment with nearly 1,000 students</p>
+      </div>
+    </div>
+    <div class="tiles-right">
+      <div class="tiles-head" data-reveal>
+        <h2 class="head" id="evidence-title">design decides whether AI helps</h2>
+      </div>
+      <div class="tile tile-b" data-reveal style="--i:1">
+        <p class="fig nums">−17%</p>
+        <div>
+          <p>How much worse students did, once access was removed, after practising with an unrestricted chatbot.</p>
+          <p class="ref">The same experiment, compared with students who never had access</p>
+        </div>
+      </div>
+      <div class="tile tile-c" data-reveal style="--i:2">
+        <p class="fig nums">+48%</p>
+        <div>
+          <p>Practice grades with that unrestricted chatbot, while it was available.</p>
+          <p class="ref">The same experiment: higher practice grades, less real learning</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="findings">
+    <div class="findings-lead" data-reveal>
+      <p>An AI that gives answers can hollow out learning. An AI that makes students think can accelerate it.</p>
+      <p class="small muted" style="margin-top:1.25rem">Four findings from Section 2 of the whitepaper shape Treo’s design. At Harvard, an AI tutor built on research-based teaching practice produced learning gains more than double an in-class active-learning session, an estimated 0.63 to 1.3 standard deviations (<a href="https://doi.org/10.1038/s41598-025-97652-6">Kestin et al., AI tutoring outperforms in-class active learning, Scientific Reports 2025</a>).</p>
+    </div>
+    <ol class="findings-list" aria-label="Findings">
+      <li class="finding" data-reveal>
+        <div class="num"><p class="num-fig nums">0.76</p><p class="num-cap small">standard deviations for step-based tutoring software, against 0.79 for a human tutor</p></div>
+        <div>
+          <h3>tutoring works, and software can approach it</h3>
+          <p>One-to-one tutoring far outperforms classroom teaching, and well-designed step-level software comes close. What is new is offering it in natural language, across subjects, at low cost.</p>
+          <p class="ref small muted">VanLehn, Educational Psychologist 2011; Bloom 1984; Pane et al., Educational Evaluation and Policy Analysis 2014</p>
+        </div>
+      </li>
+      <li class="finding" data-reveal style="--i:1">
+        <div class="num"><p class="num-fig nums">+9 pts</p><p class="num-cap small">mastery for students of lower-rated tutors given an AI copilot (+4 overall), at about $20 per tutor a year</p></div>
+        <div>
+          <h3>AI works best through the adult in the loop</h3>
+          <p>A randomised trial with more than 700 tutors and 1,000 students in underserved communities. Separately, teachers who use AI weekly estimate it saves them 5.9 hours a week.</p>
+          <p class="ref small muted"><a href="https://arxiv.org/abs/2410.03017">Wang et al., Tutor CoPilot: a human-AI approach for scaling real-time expertise, 2025</a>; Gallup and Walton Family Foundation 2025</p>
+        </div>
+      </li>
+      <li class="finding" data-reveal style="--i:2">
+        <div class="num"><p class="num-fig nums">−27%</p><p class="num-cap small">course failures after weekly text alerts to parents; 32,000 messages cost $63</p></div>
+        <div>
+          <h3>families act on specific, timely information</h3>
+          <p>Alerts about missed assignments, grades and absences also raised class attendance by 12% in middle and high schools. Parents do not need to become teachers; they need to know what is happening and what to do.</p>
+          <p class="ref small muted"><a href="https://doi.org/10.3368/jhr.56.1.1118-9837R1">Bergman and Chan, Leveraging parents through low-cost technology, Journal of Human Resources 2021</a></p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="how wrap" id="how" aria-labelledby="how-title">
+  <div class="grid how-intro">
+    <h2 class="head" id="how-title" data-reveal>one model, three views</h2>
+    <p data-reveal style="--i:1">Every exchange updates one learner model: an estimate of the student’s mastery of each concept on a standards-aligned prerequisite graph. The tutor, the teacher’s copilot and the parent’s guide read the same model, so they never contradict each other. Each school runs its own isolated instance.</p>
+  </div>
+
+  <div class="acc" data-acc>
+    <section class="acc-panel is-open" style="--tone: var(--green-1)">
+      <h3><button class="acc-toggle" aria-expanded="true" aria-controls="acc-1" id="acc-1-t"><span>the shared learner model</span></button></h3>
+      <div class="acc-body" id="acc-1" role="region" aria-labelledby="acc-1-t">
+        <div class="acc-text">
+          <p>Each student carries a mastery estimate between 0 and 1 for every concept. After each exchange, a separate assessment step writes an evidence record, and the server caps how far any estimate can move at 0.15.</p>
+          <p class="on-dark-muted small">Figure 1 of the whitepaper, redrawn.</p>
+        </div>
+        <figure class="fig1" aria-label="Figure 1: three users read one shared learner model inside each school's own instance">
+          <div class="row users">
+            <div class="cap"><b>student</b>guiding questions</div>
+            <div class="cap"><b>teacher</b>approves feedback</div>
+            <div class="cap"><b>parent</b>weekly guidance</div>
+          </div>
+          <div class="core"><b>shared learner model</b>mastery and gaps, updated by every exchange</div>
+          <div class="row engines">
+            <div class="cap"><b>curriculum</b>school-approved</div>
+            <div class="cap"><b>prerequisite graph</b>root causes</div>
+            <div class="cap"><b>multimodal</b>reads handwriting</div>
+          </div>
+          <figcaption class="small">one school’s dedicated instance</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="acc-panel" style="--tone: var(--green-2)">
+      <h3><button class="acc-toggle" aria-expanded="false" aria-controls="acc-2" id="acc-2-t"><span>prerequisite graph</span></button></h3>
+      <div class="acc-body" id="acc-2" role="region" aria-labelledby="acc-2-t">
+        <div class="acc-text">
+          <p>Every STEM concept is a node, linked to what must be mastered first and aligned to Common Core mathematics and NGSS science. A wrong slope-intercept answer may really be slope, two-step equations or negative numbers. The graph says where to look; the student’s evidence says which.</p>
+        </div>
+        <div class="acc-pic"><img src="site/img/students-and-teacher-in-a-classroom-at.jpg" width="1920" height="1273" alt="A 1974 algebra class; the blackboard is covered in equations with negative signs"></div>
+      </div>
+    </section>
+    <section class="acc-panel" style="--tone: var(--green-3)">
+      <h3><button class="acc-toggle" aria-expanded="false" aria-controls="acc-3" id="acc-3-t"><span>Socratic tutor</span></button></h3>
+      <div class="acc-body" id="acc-3" role="region" aria-labelledby="acc-3-t">
+        <div class="acc-text">
+          <p>Treo never gives the final answer to a problem in progress. It asks the next question, reveals one step at a time and checks understanding, grounded in the school’s approved curriculum.</p>
+        </div>
+        <div class="acc-pic"><img src="site/img/students-studying-at-cathedral-senior-high-school.jpg" width="1920" height="1271" alt="A student working through a worksheet, head in hand"></div>
+      </div>
+    </section>
+    <section class="acc-panel" style="--tone: var(--green-4); --tone-ink: var(--ink)">
+      <h3><button class="acc-toggle" aria-expanded="false" aria-controls="acc-4" id="acc-4-t"><span>handwritten work</span></button></h3>
+      <div class="acc-body" id="acc-4" role="region" aria-labelledby="acc-4-t">
+        <div class="acc-text">
+          <p>Students reason on paper. Treo reads photographs of handwritten work today; spoken explanations and generated visuals such as number lines and force diagrams are on the roadmap.</p>
+        </div>
+        <div class="acc-pic"><img src="site/img/royal-society-isaac-newton-s-philosophiae-naturalis.jpg" width="1920" height="1193" alt="Newton's handwritten Principia manuscript, open on a stand at the Royal Society"></div>
+      </div>
+    </section>
+    <section class="acc-panel" style="--tone: var(--green-5); --tone-ink: var(--ink)">
+      <h3><button class="acc-toggle" aria-expanded="false" aria-controls="acc-5" id="acc-5-t"><span>one school, one instance</span></button></h3>
+      <div class="acc-body" id="acc-5" role="region" aria-labelledby="acc-5-t">
+        <div class="acc-text">
+          <p>Each school gets its own instance with its own data store and encryption keys. Student data stays there, is never pooled across schools, is never used for advertising, and is deleted at contract end.</p>
+          <p>The school decides what parents see: learning guidance, never raw transcripts or scores.</p>
+        </div>
+        <div class="acc-pic"><img src="site/img/homework-04.jpg" width="1920" height="1279" alt="A mother and daughter doing homework together"></div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section class="proto" id="prototype" aria-labelledby="proto-title">
+  <div class="proto-inner">
+    <div class="plate-wrap">
+      <div class="plate" data-reveal>
+        <div class="ui" data-ui id="demo">
+          <div class="ui-head"><strong data-out="viewTitle">Student · Socratic tutor</strong><span class="who">Ama · fictional student</span></div>
+
+          <div class="pane" data-pane="student" id="pane-student" role="tabpanel" aria-labelledby="tab-student">
+            <h3 class="sr-only">Student view</h3>
+            <div class="problem-card">
+              <span class="small muted">Solve for y</span>
+              <p class="eq nums">4x + 2y = 6</p>
+            </div>
+            <p class="small" style="margin-top:0.9rem">Choose Ama’s answer:</p>
+            <div class="answers" role="group" aria-label="Ama's answer">
+              <button class="answer nums" data-answer="sign" aria-pressed="true">y = 2x + 3</button>
+              <button class="answer nums" data-answer="proc" aria-pressed="false">y = −4x + 3</button>
+              <button class="answer nums" data-answer="correct" aria-pressed="false">y = −2x + 3</button>
+            </div>
+            <p class="bubble" aria-live="polite"><span class="bubble-who">Treo</span><span data-out="tutor">You divided by 2 correctly. Now look at 4x: when you subtract it from both sides, what sign does it have on the right?</span></p>
+            <p class="rule-note small">Treo asks the next question. It never gives the final answer.</p>
+          </div>
+
+          <div class="pane" data-pane="teacher" id="pane-teacher" role="tabpanel" aria-labelledby="tab-teacher">
+            <h3 class="sr-only">Teacher view</h3>
+            <dl class="kv">
+              <dt>summary</dt><dd data-out="summary">Ama isolated y but kept the sign of 4x when moving it across.</dd>
+              <dt>misconception</dt><dd><span data-out="misconception">Keeps a term’s sign when it moves across the equals sign</span> <span class="tag" data-out="errorTag">conceptual</span></dd>
+              <dt>likely root cause</dt><dd data-out="rootLong">operations with negative numbers (0.38)</dd>
+              <dt>teaching move</dt><dd data-out="move">5-minute number-line warm-up: subtracting 4x is adding −4x. Then redo 4x + 2y = 6 together.</dd>
+            </dl>
+            <div class="draft">
+              <span class="small muted">Draft to Ama, waiting for you</span>
+              <p data-out="draft">Ama, your division by 2 was right. Look again at 4x: when you subtract it from both sides, what does the right side become?</p>
+              <div class="draft-actions">
+                <button class="mini" data-approve>approve</button>
+                <button class="mini ghost" data-reject>reject</button>
+                <span class="status small" data-out="approval" aria-live="polite">Nothing reaches Ama’s record until you approve it.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pane" data-pane="parent" id="pane-parent" role="tabpanel" aria-labelledby="tab-parent">
+            <h3 class="sr-only">Parent view</h3>
+            <div class="draft-actions" style="margin:0 0 1rem">
+              <div class="lang" role="group" aria-label="Language">
+                <button data-lang="en" aria-pressed="true">English</button>
+                <button data-lang="es" aria-pressed="false">Español</button>
+              </div>
+              <span class="status small" data-out="shared">Shared by the school</span>
+            </div>
+            <div class="guide" aria-live="polite">
+              <p><strong data-out="pWorkedLabel">This week</strong> <span data-out="pWorked">Ama practiced rearranging equations to find y.</span></p>
+              <p><strong data-out="pStuckLabel">Where she got stuck</strong> <span data-out="pStuck">When a term moves across the equals sign, its sign should flip. That comes from working with negative numbers.</span></p>
+              <div><strong data-out="pTryLabel">Try at home</strong><ul data-out="pTry"><li>Ask her to explain each step out loud.</li><li>Use money: owing $4 is −4.</li><li>Spend 5 minutes on a number line, adding and subtracting negatives.</li></ul></div>
+              <p><strong data-out="pAskLabel">Ask her</strong> <span data-out="pAsk">“If you owe me $4 and I cancel the debt, are you richer or poorer?”</span></p>
+            </div>
+          </div>
+
+          <div class="plate-model">
+            <p class="small muted">Ama’s learner model, read by all three views</p>
+            <ul class="model">
+              <li data-concept="negnum" class="is-root"><span class="name">negative numbers</span><span class="bar"><i></i></span><span class="val nums">0.38</span></li>
+              <li data-concept="twostep"><span class="name">two-step equations</span><span class="bar"><i></i></span><span class="val nums">0.70</span></li>
+              <li data-concept="slopeint"><span class="name">slope-intercept form</span><span class="bar"><i></i></span><span class="val nums">0.37</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proto-side">
+      <div class="tabs" role="tablist" aria-label="View" data-reveal>
+        <button class="tab" role="tab" id="tab-student" aria-controls="pane-student" aria-selected="true" data-tab="student">student</button>
+        <button class="tab" role="tab" id="tab-teacher" aria-controls="pane-teacher" aria-selected="false" data-tab="teacher" tabindex="-1">teacher</button>
+        <button class="tab" role="tab" id="tab-parent" aria-controls="pane-parent" aria-selected="false" data-tab="parent" tabindex="-1">parent</button>
+      </div>
+      <div class="proto-text" data-reveal style="--i:1">
+        <h2 class="head" id="proto-title">the prototype today</h2>
+        <p>A working prototype, built on Claude, runs the full loop on a 10-concept graph of algebra and Newton’s second law. Pick Ama’s answer, then switch views: one model updates the tutor, the teacher’s copilot, the parent’s guide and the learner model at the top of this page.</p>
+        <p class="small">It uses fictional students and stores no data. Per-school deployment, the full grade 8–12 graph, voice input and a class dashboard are on the roadmap.</p>
+      </div>
+      <div class="cells" data-reveal style="--i:2">
+        <a class="cell cell-ink" href="treo-whitepaper.pdf">read section 7 in the PDF</a>
+        <button class="cell cell-tone" data-reset>start the exchange again</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="business wrap" id="business" aria-labelledby="business-title">
+  <div class="plans">
+    <div class="plans-head" data-reveal>
+      <h2 class="head" id="business-title">priced per student</h2>
+      <p>The district or school buys Treo; teachers decide whether it sticks. Prices are planning assumptions, to be validated in pilots.</p>
+    </div>
+    <article class="plan" data-reveal>
+      <h3>pilot</h3>
+      <p class="price nums">$0</p>
+      <p class="per">license fee; the school covers cloud cost</p>
+      <ul class="capsules"><li>One school, one semester</li><li>Research-grade evaluation</li></ul>
+      <a class="strip" href="https://github.com/kobowood1/treo-ai-whitepaper/issues">ask about a pilot for the 2027–28 school year</a>
+    </article>
+    <article class="plan" data-reveal style="--i:1">
+      <h3>school</h3>
+      <p class="price nums">$25</p>
+      <p class="per">per student per year, $7,500 minimum</p>
+      <ul class="capsules"><li>A dedicated instance</li><li>Student, teacher and parent views</li><li>Grounding in the school’s curriculum</li></ul>
+      <a class="strip" href="treo-whitepaper.pdf">read the full business model in the whitepaper</a>
+    </article>
+    <article class="plan" data-reveal style="--i:2">
+      <h3>district</h3>
+      <p class="price nums">$20</p>
+      <p class="per">per student per year, five schools or more</p>
+      <ul class="capsules"><li>Everything in the school plan</li><li>A district dashboard</li><li>Single sign-on</li></ul>
+      <a class="strip" href="https://github.com/kobowood1/treo-ai-whitepaper/issues">ask about district plans, the dashboard and SSO</a>
+    </article>
+  </div>
+  <div class="plans-note"><p class="small muted">Onboarding is $3,000 once per school: curriculum loading, teacher training and the data-privacy agreement. Each school’s instance runs on standard U.S. cloud infrastructure with its own data store and keys.</p></div>
+</section>
+
+<section class="pays wrap" aria-labelledby="pays-title">
+  <div class="grid pays-grid">
+    <div class="pays-left">
+    <h2 class="head" id="pays-title" data-reveal>who pays for it</h2>
+    <div class="numbers">
+      <div data-reveal><p class="big nums">99,297</p><p>public schools in the United States, in 19,186 districts</p></div>
+      <div data-reveal style="--i:1"><p class="big nums">700</p><p>partner schools planned by 2031, about 500 students each</p></div>
+      <div data-reveal style="--i:2"><p class="big nums">$8.4M</p><p>annual revenue planned by 2031, from licenses and onboarding</p></div>
+      <div data-reveal style="--i:3"><p class="big nums">85</p><p>U.S. employees planned by 2031</p></div>
+    </div>
+    <p class="numbers-note small">The five-year figures are projections, not forecasts: partner schools × 500 students × the blended license price, plus onboarding. Spending runs ahead of revenue until year four, funded by grants, venture competitions and a seed round in 2028.</p>
+    </div>
+    <ul class="capsules pays-list" data-reveal style="--i:1">
+      <li><b>Existing federal grants.</b> Department of Education guidance (July 2025) confirms formula and discretionary funds may pay for AI-enhanced high-impact tutoring.</li>
+      <li><b>Competitive grants.</b> The April 2026 final priority on AI names adaptive learning, tutoring and virtual teaching assistants.</li>
+      <li><b>Families.</b> From January 2027, scholarships funded by the federal scholarship tax credit can cover qualified K–12 expenses in participating states.</li>
+      <li><b>National priority.</b> Executive Order 14277 directs that educators be equipped to use AI to improve outcomes.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="close" aria-labelledby="close-title">
+  <div class="close-shape">
+    <div class="capsule"><img src="site/img/students-and-teacher-in-a-classroom-at.jpg" width="1920" height="1273" alt="An algebra class in 1974, students at their desks facing a blackboard of equations"></div>
+  </div>
+  <div class="close-text">
+    <h2 id="close-title">read the whole case</h2>
+    <p>The problem, the research, the architecture, the safeguards, a public evaluation plan with its failure criteria, the prototype and the business model.</p>
+    <p class="fact">Version 1.0 · October 27, 2026</p>
+    <a class="button" href="treo-whitepaper.pdf" download>download the PDF</a>
+    <p class="small on-dark-muted">Pilot schools for 2027–28, learning scientists, teachers and research partners: <a class="link-plain" href="https://github.com/kobowood1/treo-ai-whitepaper/issues">open an issue on GitHub</a>.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <h2 class="mark" aria-label="treo">
+    <span style="--h:72%; --c: var(--mint)" aria-hidden="true">t</span>
+    <span style="--h:100%; --c: var(--accent)" aria-hidden="true">r</span>
+    <span style="--h:60%; --c: var(--pink)" aria-hidden="true">e</span>
+    <span style="--h:86%; --c: var(--ink)" aria-hidden="true">o</span>
+  </h2>
+  <div class="grid foot-cols">
+    <div class="c1">
+      <h3>whitepaper</h3>
+      <ul class="foot-list">
+        <li><a class="link" href="treo-whitepaper.pdf">PDF</a></li>
+        <li><a class="link" href="https://github.com/kobowood1/treo-ai-whitepaper/blob/main/WHITEPAPER.md">web version</a></li>
+        <li><a class="link" href="https://github.com/kobowood1/treo-ai-whitepaper">repository</a></li>
+      </ul>
+    </div>
+    <div class="c2">
+      <h3>on this page</h3>
+      <ul class="foot-list">
+        <li><a class="link" href="#evidence">evidence</a></li>
+        <li><a class="link" href="#how">how it works</a></li>
+        <li><a class="link" href="#prototype">prototype</a></li>
+        <li><a class="link" href="#business">business</a></li>
+      </ul>
+    </div>
+    <div class="c3">
+      <h3>Kofi Obo Wood</h3>
+      <p>Technical product manager and AI engineer building AI learning systems. Treo is an independent project. The whitepaper is licensed <a class="link-plain" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+    </div>
+    <p class="credits small">Pictures: three 1974 photographs from Cathedral High School, New Ulm, Minnesota, by <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:STUDENTS_STUDYING_AT_CATHEDRAL_SENIOR_HIGH_SCHOOL_IN_NEW_ULM,_MINNESOTA._THE_TOWN_IS_A_COUNTY_SEAT_TRADING_CENTER_OF..._-_NARA_-_558209.jpg">Abul Haque</a> and <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:STUDENTS_AND_TEACHER_IN_A_CLASSROOM_AT_CATHEDRAL_HIGH_SCHOOL_IN_NEW_ULM,_MINNESOTA._THE_TOWN_IS_A_COUNTY_SEAT_TRADING..._-_NARA_-_558214.jpg">David</a> <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:A_TEACHER_TALKS_TO_HIS_STUDENTS_IN_A_CLASSROOM_AT_CATHEDRAL_HIGH_SCHOOL_IN_NEW_ULM,_MINNESOTA._THE_TOWN_IS_A_COUNTY..._-_NARA_-_558210.tif">Stroble</a> (U.S. National Archives, public domain); <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:Homework_04.jpg">Homework 04</a> by Bright Kwame Ayisi (CC0); <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:Royal_Society_-_Isaac_Newton%E2%80%99s_Philosophiae_Naturalis_Principia_Mathematica_manuscript_1.jpg">Newton’s Principia manuscript</a> at the Royal Society (public domain). All via Wikimedia Commons. Ama is a fictional student.</p>
+  </div>
+  <div class="foot-last">
+    <span>© 2026 Kofi Obo Wood</span>
+    <a class="button" href="treo-whitepaper.pdf">whitepaper (PDF)</a>
+  </div>
+</footer>
+
+<script src="site/main.js"></script>
+</body>
+</html>
