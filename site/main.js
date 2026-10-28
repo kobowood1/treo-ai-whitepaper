@@ -122,7 +122,7 @@ function render() {
   setText('rootLong', ex.root ? `${NAMES[ex.root]} (${fmt(m[ex.root])})` : 'none: no gap found in this exchange');
   setText('move', ex.move);
   setText('draft', ex.draft);
-  setText('approval', state.approval === 'approved' ? 'Approved. Added to Ama’s record.' : state.approval === 'rejected' ? 'Rejected. Nothing was sent.' : 'Nothing reaches Ama’s record until you approve it.');
+  setText('approval', state.approval === 'approved' ? 'Approved. Added to Mandy’s record.' : state.approval === 'rejected' ? 'Rejected. Nothing was sent.' : 'Nothing reaches Mandy’s record until you approve it.');
 
   // parent
   const p = ex[state.lang], L = LABELS[state.lang];
